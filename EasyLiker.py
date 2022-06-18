@@ -29,12 +29,12 @@ class EasyLiker:
         return response['response']
 
     def get_account_balance(self) -> float:
-        temp_data = self._default_data
+        temp_data = self._default_data.copy()
         temp_data['method'] = "getBalance"
         return self.__req_worker(temp_data)
 
     def get_services(self) -> dict:
-        temp_data = self._default_data
+        temp_data = self._default_data.copy()
         temp_data['method'] = "getServices"
         return self.__req_worker(temp_data)
 
@@ -46,7 +46,7 @@ class EasyLiker:
             link: str,
             count: str,
             option: list | int = None) -> dict:
-        temp_data = self._default_data
+        temp_data = self._default_data.copy()
         temp_data['method'] = "createTask"
         temp_data['website'] = website
         temp_data['quality'] = quality
@@ -62,7 +62,7 @@ class EasyLiker:
             id: int = None,
             count: int = None,
             offset: int = None) -> dict:
-        temp_data = self._default_data
+        temp_data = self._default_data.copy()
         if id:
             temp_data['id'] = id
         if count:
